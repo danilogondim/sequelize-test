@@ -1,23 +1,25 @@
 var DataTypes = require("sequelize").DataTypes;
-var _categories = require("./categories");
-var _order_items = require("./order_items");
-var _users = require("./users");
-var _orders = require("./orders");
-var _items = require("./items");
+var _Categories = require("./categories");
+var _Users = require("./users");
+var _Items = require("./items");
+var _Orders = require("./orders");
+var _OrderItems = require("./order_items");
 
 function initModels(sequelize) {
-  var Category = _categories(sequelize, DataTypes);
-  var OrderItem = _order_items(sequelize, DataTypes);
-  var User = _users(sequelize, DataTypes);
-  var Order = _orders(sequelize, DataTypes);
-  var Item = _items(sequelize, DataTypes);
+  var Category = _Categories(sequelize, DataTypes);
+  var User = _Users(sequelize, DataTypes);
+  var Item = _Items(sequelize, DataTypes);
+  var Order = _Orders(sequelize, DataTypes);
+  var OrderItem = _OrderItems(sequelize, DataTypes);
 
   return {
     Category,
-    OrderItem,
     User,
-    Order,
     Item,
+    Order,
+    OrderItem,
   };
 }
 module.exports = { initModels };
+
+

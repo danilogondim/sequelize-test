@@ -2,25 +2,37 @@
 
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('orders', {
+  return sequelize.define('Orders', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    informed_time: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    accepted: {
-      type: DataTypes.BOOLEAN,
-      allowNull: true
-    },
     created_at: {
       type: DataTypes.DATE,
       allowNull: true,
       defaultValue: Sequelize.fn('now')
+    },
+    comment: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    accepted_at: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    informed_time: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    rejected_at: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    ready_at: {
+      type: DataTypes.DATE,
+      allowNull: true
     },
     completed_at: {
       type: DataTypes.DATE,
@@ -33,10 +45,6 @@ module.exports = function(sequelize, DataTypes) {
         model: 'users',
         key: 'id'
       }
-    },
-    comment: {
-      type: DataTypes.STRING,
-      allowNull: true
     }
   }, {
     sequelize,

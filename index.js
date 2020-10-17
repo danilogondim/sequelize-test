@@ -10,11 +10,12 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proces
 });
 
 // import models
-const { Category,
-  OrderItem,
+const {
+  Category,
   User,
+  Item,
   Order,
-  Item
+  OrderItem,
 } = initModels(sequelize)
 
 // after installing sequelize-auto, I could not run the command directly. I had to give the following path:

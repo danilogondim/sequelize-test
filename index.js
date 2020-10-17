@@ -39,11 +39,18 @@ User.findAll()
 //   phone: 1234567890
 // }).then(user => console.log(JSON.stringify(user, null, 2)));
 
+// User.update({  phone: 4164567890}, {
+//   where: {
+//     name: 'Rob'
+//   }
+// }).then(updatedRows => console.log(JSON.stringify(updatedRows, null, 2)));
+
+
 // User.destroy({
 //   where: {
 //     id: 11
 //   }
-// }).then(user => console.log(JSON.stringify(user, null, 2)));
+// }).then(destroyedRows => console.log(JSON.stringify(destroyedRows, null, 2)));
 
 // test connection
 // sequelize.authenticate()

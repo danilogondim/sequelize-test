@@ -6,18 +6,18 @@ var _orders = require("./orders");
 var _items = require("./items");
 
 function initModels(sequelize) {
-  var categories = _categories(sequelize, DataTypes);
-  var order_items = _order_items(sequelize, DataTypes);
-  var users = _users(sequelize, DataTypes);
-  var orders = _orders(sequelize, DataTypes);
-  var items = _items(sequelize, DataTypes);
+  var Category = _categories(sequelize, DataTypes);
+  var OrderItem = _order_items(sequelize, DataTypes);
+  var User = _users(sequelize, DataTypes);
+  var Order = _orders(sequelize, DataTypes);
+  var Item = _items(sequelize, DataTypes);
 
   return {
-    categories,
-    order_items,
-    users,
-    orders,
-    items,
+    Category,
+    OrderItem,
+    User,
+    Order,
+    Item,
   };
 }
 module.exports = { initModels };

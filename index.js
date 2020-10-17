@@ -1,4 +1,5 @@
 require('dotenv').config({ path: __dirname + '/.env' })
+const { initModels } = require('./models/init-models')
 const { Sequelize, DataTypes } = require('sequelize');
 
 const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
@@ -6,6 +7,12 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proces
   port: process.env.DB_PORT,
   dialect: 'postgres'
 });
+const { Category,
+  OrderItem,
+  User,
+  Order,
+  Item
+} = initModels(sequelize)
 
 // after installing sequelize-auto, I could not run the command directly. I had to give the following path:
 // ./node_modules/.bin/sequelize-auto -o "./models" -d sequelize_auto_test -h localhost -u my_username -p 5432 -x my_password -e postgres

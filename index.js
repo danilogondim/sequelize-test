@@ -17,11 +17,16 @@ const { Category,
 // after installing sequelize-auto, I could not run the command directly. I had to give the following path:
 // ./node_modules/.bin/sequelize-auto -o "./models" -d sequelize_auto_test -h localhost -u my_username -p 5432 -x my_password -e postgres
 
+const getUsers = async () => {
+  const users = await User.findAll();
+  console.log(JSON.stringify(users, null, 2));
+}
+getUsers();
 
-Category.findAll({ attributes: ['name', 'description'] })
-  .then(categories => {
-    console.log(categories.every(category => category instanceof Category))
-    console.log("All categories:", JSON.stringify(categories, null, 2));
+User.findAll()
+  .then(users => {
+    // console.log(categories.every(category => category instanceof Category))
+    console.log(JSON.stringify(users, null, 2));
   }); // true)
 
 // test connection

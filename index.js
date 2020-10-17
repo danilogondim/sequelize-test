@@ -7,20 +7,8 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proces
   dialect: 'postgres'
 });
 
-
-const Category = sequelize.define('category', {
-  // Model attributes are defined here
-  name: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  description: {
-    type: DataTypes.STRING
-    // allowNull defaults to true
-  }
-}, {
-  // Other model options go here
-});
+// after installing sequelize-auto, I could not run the command directly. I had to give the following path:
+// ./node_modules/.bin/sequelize-auto -o "./models" -d sequelize_auto_test -h localhost -u my_username -p 5432 -x my_password -e postgres
 
 
 Category.findAll({ attributes: ['name', 'description'] })
